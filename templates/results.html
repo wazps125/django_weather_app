@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather App</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Weather App</h1>
+      <form action="results">
+        <label for="city">City:</label>
+        <input
+          type="text"
+          id="city"
+          name="city"
+          placeholder="Enter city name..."
+        />
+        <button type="submit">Get Weather</button>
+      </form>
+      <div id="weather-info">
+        <h2>{{data.name}}</h2>
+        <div>
+          <p>Temperature: {{data.main.temp}} &deg;C</p>
+          <p>Humidity: {{data.main.humidity}}%</p>
+          <p>Weather: {{data.weather.0.description}}</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
